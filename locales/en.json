@@ -1,0 +1,27 @@
+{
+  "pair": {
+    "SmaInverter":{
+       "title": "Add SMA Inverter"
+    },
+    "JL204C5":{
+      "title": "Add JL204C5 Controller"
+   },
+    "COM":{
+      "baudrate": "Baud rate",
+      "port": "Port",
+      "intro": "Enter the COM port number, baud rate and polling frequency of your device."
+    },
+    "TCPIP":{
+      "address": "IP Address",
+      "port": "Port",
+      "intro": "Enter the IP address, port number and polling frequency of your device."
+    },
+    "connect": "Connect",
+    "polling":{
+      "Sec":"Polling Frequency (sec)",
+      "Ms":"Polling Frequency (ms)"
+    },
+    "nosettings": "Please fill in all the required fields."
+  },
+  "Unreachable": "Unreachable"
+}

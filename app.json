@@ -1,0 +1,210 @@
+{
+  "id": "app.drivers.modbus",
+  "sdk": 2,
+  "name": {
+    "en": "Modbus drivers"
+  },
+  "description": {
+    "en": "Adds support for devices working via Modbus"
+  },
+  "tags": {
+		"en": [ "modbus" ]
+	},
+  "version": "0.0.1",
+  "compatibility": ">=1.5.0",
+  "author": {
+    "name": "Vladimir Kornev",
+    "email": "vlkornev@yandex.ru"
+  },
+  "category": [
+    "tools"
+  ],
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.jpg",
+    "small": "/assets/images/small.jpg"
+  },
+  "dependencies": {
+		"net": "*"
+	},
+  "capabilities": {
+    "measure_yield": {
+      "type": "number",
+      "title": {
+        "en": "Total Yield"
+      },
+      "getable": true,
+      "setable": false,
+      "units": {
+        "en": "MWh"
+      }
+    }
+  },
+  "drivers": [
+		{
+			"id": "inverter",
+			"name": {
+				"en": "SMA Inverters"
+			},
+			"images": {
+				"large": "drivers/inverter/assets/images/large.jpg",
+				"small": "drivers/inverter/assets/images/small.jpg"
+			},
+			"class": "sensor",
+			"capabilities": [
+        "measure_power",
+				"meter_power",
+				"measure_voltage",
+        "measure_yield"
+			],
+      "capabilitiesOptions": {
+        "meter_power": {
+          "title": {
+            "en": "Daily Yield"
+          }
+        }
+      },
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+				{
+					"type": "group",
+					"label": {
+						"en": "Inverter settings"
+					},
+					"children": [
+						{
+							"id": "address",
+							"type": "text",
+							"value": "0.0.0.0",
+							"label": {
+								"en": "IP Address"
+							}
+						},
+						{
+							"id": "port",
+							"type": "number",
+							"value": 502,
+							"step": 1,
+							"label": {
+								"en": "Port"
+							}
+						},
+						{
+							"id": "polling",
+							"type": "number",
+							"value": 5,
+							"step": 1,
+							"attr": {
+								"min": 2,
+								"max": 3600
+							},
+							"label": {
+								"en": "Polling"
+							}
+						}
+					]
+				}
+			],
+      "mobile": {
+        "components": [
+          {
+            "id": "sensor",
+            "capabilities": [ "measure_power", "meter_power", "measure_voltage", "measure_yield" ],
+            "options": {
+              "icons": {
+                "measure_yield": "/assets/total_yield.svg"
+              }
+            }
+          }
+        ]
+      }
+		},
+		{
+			"id": "JL204C5",
+			"name": {
+				"en": "JL204C5"
+			},
+			"images": {
+				"large": "drivers/inverter/assets/images/large.jpg",
+				"small": "drivers/inverter/assets/images/small.jpg"
+			},
+			"class": "sensor",
+			"capabilities": [
+				"onoff",
+				"thermostat_mode",
+				"measure_temperature",
+				"measure_humidity"
+			],
+      "capabilitiesOptions": {
+        "onoff": {
+          "greyout": true
+        }
+      },
+			"pair": [
+				{
+					"id": "start"
+				}
+			],
+			"settings": [
+				{
+					"type": "group",
+					"label": {
+						"en": "JL204C5 settings"
+					},
+					"children": [
+						{
+							"id": "address",
+							"type": "text",
+							"value": "0.0.0.0",
+							"label": {
+								"en": "IP Address"
+							}
+						},
+						{
+							"id": "port",
+							"type": "number",
+							"value": 502,
+							"step": 1,
+							"label": {
+								"en": "Port"
+							}
+						},
+						{
+							"id": "polling",
+							"type": "number",
+							"value": 5,
+							"step": 1,
+							"attr": {
+								"min": 300,
+								"max": 700
+							},
+							"label": {
+								"en": "Polling"
+							}
+						}
+					]
+				}
+			],
+      "mobile": {
+        "components": [
+          {
+            "id": "toggle",
+            "capabilities": ["onoff"]
+					},
+					{
+						"id": "sensor",
+            "capabilities": ["measure_temperature","measure_humidity"]
+					},
+					{
+						"id": "picker",
+            "capabilities": [	"thermostat_mode"]
+					}
+        ]
+      }
+		}
+	]
+}

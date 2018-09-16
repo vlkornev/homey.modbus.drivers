@@ -1,2 +1,3 @@
-# homey.modbus.drivers
-modbus drivers for Athom Homey
+# Modbus drivers
+
+Adds support for devices working via Modbus
